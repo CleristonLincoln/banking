@@ -41,7 +41,7 @@
 				
 					<tr th:each="emprestimo : ${emprestimos}">
 						<td class="text-center" th:text="${emprestimo.id}">1</td>
-						<td th:text="${Emprestimo.cliente.id}"></td>
+						<td th:text="${emprestimo.cliente.nome}"></td>
 						<td class="text-center" th:text="${emprestimo.valorEmprestimo}"></td>
 						<td class="text-right" th:text="${emprestimo.totalParcelas}"></td>
 						<td class="text-right" th:text="${emprestimo.dataEmprestimo}"></td>

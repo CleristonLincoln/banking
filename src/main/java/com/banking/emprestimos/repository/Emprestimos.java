@@ -8,4 +8,8 @@ import com.banking.emprestimos.model.Emprestimo;
 @Repository
 public interface Emprestimos extends JpaRepository<Emprestimo, Long>{
 
+	
+	
+	
+	
 }
