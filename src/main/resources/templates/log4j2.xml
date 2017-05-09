@@ -8,7 +8,7 @@
 	</Appenders>
 	
 	<Loggers>
-		<Logger name="br.com.admescola.escola.controller" level="error"/>
+		<Logger name="br.com.banking.emprestimos.controller" level="error"/>
 		
 		<Logger name="org.hibernate" level="debug"/>
 	
