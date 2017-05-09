@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<nav class="navbar navbar-02css navbar-static-top">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<a class="navbar-brand" href="/home/novo"> 
+		<img src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMS
+		I/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVm
+		Vyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiI
+		gImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d
+		3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4
+		xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjMycHgiIGhlaWdodD0iMzJweCIgdmlld0JveD0iMCAwIDUxMS
+		42MTMgNTExLjYxMyIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNTExLjYxMyA1MTEuNjEzOyIgeG1sOnNwYW
+		NlPSJwcmVzZXJ2ZSI+CjxnPgoJPHBhdGggZD0iTTM4NS4yNjEsMzExLjQ3NWMtMi40NzEtOC4zNjctNS40NjktMTUuNjQ5L
+		TguOTktMjEuODMzYy0zLjUxOS02LjE5LTguNTU5LTEyLjIyOC0xNS4xMy0xOC4xMzQgICBjLTYuNTYzLTUuOTAzLTEyLjQ2
+		Ny0xMC42NTctMTcuNzAyLTE0LjI3MWMtNS4yMzItMy42MTctMTIuNDE5LTcuNjYxLTIxLjU1Ny0xMi4xMzdjLTkuMTMtNC
+		40NzUtMTYuMzY0LTcuODA1LTIxLjY4OS05Ljk5NSAgIGMtNS4zMzItMi4xODctMTMuMDQ1LTUuMTg1LTIzLjEzNC04Ljk5
+		MmMtOC45NDUtMy40MjQtMTUuNjA1LTYuMDQyLTE5Ljk4Ny03Ljg0OWMtNC4zNzctMS44MDktMTAuMTMzLTQuMzc3LTE3LjI
+		3MS03LjcxICAgYy03LjEzNS0zLjMyOC0xMi40NjUtNi4yOC0xNS45ODctOC44NDhjLTMuNTIxLTIuNTY4LTcuMjc5LTU
+		uNzA4LTExLjI3Ny05LjQxOWMtMy45OTgtMy43MTEtNi44MDUtNy42NjEtOC40MjQtMTEuODQ4ICAgYy0xLjYxNS00LjE4
+		OC0yLjQyNS04Ljc1Ny0yLjQyNS0xMy43MDZjMC0xMi45NCw1LjcwOC0yMy41MDcsMTcuMTI4LTMxLjY4OWMxMS40MjEtO
+		C4xODIsMjYuMTc0LTEyLjI3NSw0NC4yNTctMTIuMjc1ICAgYzcuOTksMCwxNi4xMzYsMS4wOTMsMjQuNDEsMy4yODRzMT
+		UuMzY1LDQuNjU5LDIxLjI2Niw3LjQyMWM1LjkwNiwyLjc2MiwxMS40NzEsNS44MDgsMTYuNzA3LDkuMTM3ICAgYzUuMjM
+		1LDMuMzMyLDguOTQ1LDUuODUyLDExLjEzNiw3LjU2NWMyLjE4OSwxLjcxNCwzLjU3NiwyLjg1NSw0LjE0MSwzLjQyN2My
+		LjQ3OCwxLjkwMyw1LjA0MSwyLjU2OCw3LjcwNiwxLjk5OSAgIGMyLjg1NC0wLjE5LDUuMDQ1LTEuNzE1LDYuNTcxLTQuN
+		TY3bDIzLjEzLTQxLjY4NGMyLjI4My0zLjgwNSwxLjgxMS03LjQyMi0xLjQyNy0xMC44NWMtMS4xNDQtMS4xNDItMi41Nj
+		YtMi40NzMtNC4yOTEtMy45OTcgICBjLTEuNzA4LTEuNTI0LTUuNDIxLTQuMjgzLTExLjEzNi04LjI4MmMtNS43MDktMy4
+		5OTYtMTEuNzUyLTcuNTY1LTE4LjEyNC0xMC43MDZjLTYuMzc5LTMuMTM4LTE0LjY2MS02LjMyOC0yNC44NDUtOS41NjI
+		gICBjLTEwLjE3OC0zLjIzOS0yMC42OTctNS40MjYtMzEuNTQ5LTYuNTY3VjkuMTM2YzAtMi42NjMtMC44NTUtNC44NTM
+		tMi41NjMtNi41NjdDMjgyLjQ5MywwLjg1OSwyODAuMzAzLDAsMjc3LjYzNCwwaC0zOC41NDYgICBjLTIuNDc0LDAtNC
+		42MTUsMC45MDMtNi40MjMsMi43MTJzLTIuNzEyLDMuOTQ5LTIuNzEyLDYuNDI0djUxLjM5MWMtMjkuODg0LDUuNzA4LTU
+		0LjE1MiwxOC40NjEtNzIuODA1LDM4LjI1NiAgIGMtMTguNjUxLDE5Ljc5Ni0yNy45OCw0Mi44MjMtMjcuOTgsNjkuMDkyY
+		zAsNy44MDMsMC44MTIsMTUuMjI2LDIuNDMsMjIuMjY1YzEuNjE2LDcuMDQ1LDMuNjE2LDEzLjM3NCw1Ljk5NiwxOC45ODggIC
+		BjMi4zNzgsNS42MTgsNS43NTgsMTEuMTM2LDEwLjEzNSwxNi41NjJjNC4zNzcsNS40MjQsOC41MTgsMTAuMDg4LDEyLjQx
+		OSwxMy45ODhjMy45MDMsMy44OTksOC45OTUsNy45NDUsMTUuMjc0LDEyLjEzMSAgIGM2LjI4Myw0LjE5LDExLjY2LDcu
+		NTcxLDE2LjEzNCwxMC4xMzljNC40NzUsMi41NiwxMC40MjIsNS41MiwxNy44NDMsOC44NDNjNy40MjMsMy4zMzMsMTM
+		uMjc4LDUuODUyLDE3LjU2MSw3LjU2OSAgIGM0LjI4MywxLjcxMSwxMC4xMzUsNC4wOTMsMTcuNTYxLDcuMTMyYzEwLjI3
+		NywzLjk5NywxNy44OTIsNy4wOTEsMjIuODQsOS4yODFjNC45NTIsMi4xOSwxMS4yMzEsNS4yMzUsMTguODQ5LDkuMT
+		M3ICAgYzcuNjExLDMuODk4LDEzLjE3Niw3LjQ2OCwxNi43LDEwLjcwNWMzLjUyMSwzLjIzNyw2LjcwOCw3LjIzNCw5Lj
+		U2NSwxMS45OTFzNC4yODgsOS44MDEsNC4yODgsMTUuMTMzICAgYzAsMTUuMDM3LTUuODUzLDI2LjY0NS0xNy41NjI
+		sMzQuODIzYy0xMS43MDQsOC4xODctMjUuMjcsMTIuMjc5LTQwLjY4NSwxMi4yNzljLTcuMDM2LDAtMTQuMDg0LT
+		AuNz
+		U3LTIxLjEyNC0yLjI3OSAgIGMtMjQuNzQ0LTQuOTU1LTQ3Ljg2OS0xNi44NTEtNjkuMzc3LTM1LjY5M2wtMC4
+		1NzEtMC41NzFjLTEuNzE0LTIuMDg4LTMuOTk5LTIuOTQ2LTYuODUxLTIuNTYzICAgYy0zLjA0NiwwLjM4LTUuMjM
+		2LDEuNTIzLTYuNTY3LDMuNDNsLTI5LjQwOCwzOC41NGMtMi44NTYsMy44MDYtMi42NjMsNy43MDcsMC41NzIsMTEu
+		NzA0YzAuOTUzLDEuMTQzLDIuNjE4LDIuODYsNC45OTYsNS4xNCAgIGMyLjM4NCwyLjI4OSw2LjgxLDUuODUyLDEzLj
+		I3OCwxMC43MTVjNi40Nyw0Ljg1NiwxMy41MTMsOS40MTgsMjEuMTI4LDEzLjcwNmM3LjYxNCw0LjI4MSwxNy4yNzIs
+		OC41MTQsMjguOTgsMTIuNzAzICAgYzExLjcwOCw0LjE4MiwyMy44MzksNy4xMzEsMzYuNDAyLDguODQzdjQ5Ljk2M2
+		MwLDIuNDc4LDAuOTA1LDQuNjE3LDIuNzEyLDYuNDI3YzEuODA5LDEuODExLDMuOTQ5LDIuNzExLDYuNDIzLDIuNzEx
+		aDM4LjU0NiAgIGMyLjY2OSwwLDQuODU5LTAuODU1LDYuNTctMi41NjZzMi41NjMtMy45MDEsMi41NjMtNi41NzF2L
+		TQ5Ljk2M2MzMC4yNjktNC45NDgsNTQuODctMTcuOTM5LDczLjgwNi0zOC45NzIgICBjMTguOTM4LTIxLjAzMywyOC
+		40MS00Ni4xMSwyOC40MS03NS4yMjlDMzg4Ljk5NCwzMjguODAxLDM4Ny43NTksMzE5Ljg1NSwzODUuMjYxLDMxMS40
+		NzV6IiBmaWxsPSIjZWVmZjAwIi8+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+Cj
+		wvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPG
+		c+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==" />
+	
+	
+			</a>
+			
+			
+			
+		</div>
+	</div>
+</nav>
+
+<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      
+      <ul class="nav navbar-nav">
+       <li>
+        <a href="/home/novo">HOME</a>
+        </li>
+         <li>
+        <a href="/emprestimos/novo">Solicitação</a>
+        </li>
+            
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+         Cadastro 
+          <span class="caret"></span>
+          </a>
+          <ul class="dropdown-menu">
+            <li>
+					<a href="/clientes/novo">Novo Cliente</a> 
+					<a href="/emprestimos/novo">Novo Emprestimo</a> 
+				
+					
+			</li>
+            
+            <li role="separator" class="divider"></li>
+            <li><a href="#">nada aqui ainda</a></li>
+          </ul>
+        </li>
+      </ul>
+            
+      <ul class="nav navbar-nav ">
+            
+       
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Pesquisa<span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="/emprestimos">Folow-up</a></li>
+           
+           
+          </ul>
+        </li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+      <li>
+      <a href="#" >Sobre</a>
+      </li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+
+</html>

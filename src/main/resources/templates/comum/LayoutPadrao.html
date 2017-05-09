@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+<head>
+<meta charset="UTF-8" />
+<title></title>
+<link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
+<link rel="stylesheet" type="text/css" href="/css/style.css" />
+<link
+	href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css"
+	rel="stylesheet" />
+
+
+
+</head>
+<body>
+	<header layout:replace="comum/Cabecalho"></header>
+
+	<section layout:fragment="conteudo01"></section>
+
+
+	<script src="/js/chosen.jquery.js"></script>
+	<script src="/js/jquery-3.2.0.min.js"></script>
+	<script src="/js/bootstrap.min.js"></script>
+	
+	
+	<script src="js/emprestimo.js"></script>
+<script	src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$(".js-example-basic-single").select2({
+				  placeholder: "Selecionae um nome",
+				 
+			});
+			
+		});
+	</script>
+	
+
+</body>
+</html>

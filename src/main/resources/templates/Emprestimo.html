@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{/comum/LayoutPadrao}">
+
+<head>
+<title></title>
+</head>
+
+<section layout:fragment="conteudo01">
+
+
+	<form class="form-horizontal" id="myForm" role="form" method="post"
+		th:action="@{/emprestimos/novo}" th:object="${emprestimo}">
+
+
+		<div class="panel panel-default">
+
+			<div class="panel-heading">
+				<h1 class="panel-title aw-titulo-panel">Novo Emprestimo</h1>
+			</div>
+
+			<div class="panel-body">
+
+
+				<div class=" form-group">
+					<label for="cliente" class="col-md-2 control-label">Cliente</label>
+					<div class="bw-field-action">
+						<select class="js-example-basic-single col-md-3" id="cliente"
+							th:field="*{cliente}">
+					
+							<option th:each="cliente : ${clientes}" th:value="${cliente.id}"
+								th:text="${cliente.nome}"></option>
+						</select>
+					</div>
+				</div>
+
+
+
+				<div class="row">
+					<label for="nome" class="col-md-2 control-label">Valor
+						solicitado</label>
+					<div class="col-sm-2">
+						<input type="text" class="form-control" id="valorEmprestimo"
+							th:field="*{valorEmprestimo}" />
+					</div>
+				</div>
+
+				<br>
+				<div class="row">
+					<label for="nome" class="col-md-2  control-label">Numero de
+						parcelas</label>
+					<div class="col-sm-2">
+						<input type="text" class="form-control" id="totalParcelas"
+							th:field="*{totalParcelas}" placeholder="numero de parcelas" />
+					</div>
+				</div>
+
+				<br>
+<div class="row">
+					<label for="text" class="col-md-2 control-label">%</label>
+					<div class="col-sm-2">
+						<input type="number" class="form-control" id="percentual"
+							th:field="*{percentual}"  />
+					</div>
+				</div>
+				<br>
+
+				<div class="row">
+					<label for="nome" class="col-md-2 control-label">Data
+						emprestimo</label>
+					<div class="col-sm-2">
+						<input type="date" class="form-control" id="dataEmprestimo"
+							th:field="*{dataEmprestimo}" />
+					</div>
+				</div>
+				<br>
+
+				<div class="form-group">
+					<label for="nome" class="col-md-2 control-label">Data
+						primeira parcela</label>
+					<div class="col-sm-2">
+						<input type="date" class="form-control datepicker" id="primeiraEmprestimo"
+							th:field="*{primeiraEmprestimo}" />
+					</div>
+				</div>
+
+				<div class="col-sm-offset-2 col-sm-10">
+					<button type="submit" class="btn btn-primary">Salvar</button>
+				</div>
+
+				
+			</div>
+			<!-- fim do body -->
+
+
+		</div>
+
+	</form>
+
+
+
+
+
+</section>
+
+
+</html>
