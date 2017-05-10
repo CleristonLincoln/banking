@@ -34,7 +34,7 @@ public class ClienteController {
 	}
 	
 	@RequestMapping(value="/novo", method=RequestMethod.POST)
-	public String salvar(@Validated Cliente cliente, Model model, BindingResult result,
+	public String salvar(@Validated @ModelAttribute Cliente cliente, Model model, BindingResult result,
 			RedirectAttributes attributes){
 		
 		

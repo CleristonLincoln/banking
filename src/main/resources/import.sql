@@ -1,14 +1,22 @@
-INSERT INTO emprestimo.cliente (id, anotacao, nome) VALUES (1,'sem anotações','Neil Gaiman');
+INSERT INTO cliente (id, anotacao, nome,status) VALUES (1,'sem anotações','Maria Andrade de Melo','LIBERADO');
+INSERT INTO cliente (id, anotacao, nome,status) VALUES (2,'estava dando muito trabalho receber','Cleriston Lincoln','BLOQUEADO');
+INSERT INTO cliente (id, anotacao, nome,status) VALUES (3,'sem anotações','Cristiane Melo','EM_ANALISE');
+INSERT INTO cliente (id, anotacao, nome,status) VALUES (4,'sem anotações','MariaAndrade','EM_ANALISE');
+INSERT INTO cliente (id, anotacao, nome,status) VALUES (5,'sem anotações','Gilvan de melo','LIBERADO');
+INSERT INTO cliente (id, anotacao, nome,status) VALUES (6,'sem anotações','MariaZumica','LIBERADO');
+INSERT INTO cliente (id, anotacao, nome,status) VALUES (7,'sem anotações','Talvanio Andrade','BLOQUEADO');
+INSERT INTO cliente (id, anotacao, nome,status) VALUES (8,'sem anotações','Roberto Pereira','LIBERADO');
+INSERT INTO cliente (id, anotacao, nome,status) VALUES (9,'mora perto do zão','Liz pereira Lima','BLOQUEADO');
+INSERT INTO cliente (id, anotacao, nome,status) VALUES (10,'sem anotações','Melkor da silva','EM_ANALISE');
+INSERT INTO cliente (id, anotacao, nome,status) VALUES (12,'sem anotações','Faro fino Lopes','BLOQUEADO');
+INSERT INTO cliente (id, anotacao, nome,status) VALUES (13,'sem anotações','Donatelo de Melo','LIBERADO');
+INSERT INTO cliente (id, anotacao, nome,status) VALUES (14,'sem anotações','Marley Pizuntu da Silva','EM_ANALISE');
+INSERT INTO cliente (id, anotacao, nome,status) VALUES (15,'sem anotações','Bibizuda','LIBERADO');
+INSERT INTO cliente (id, anotacao, nome,status) VALUES (16,'sem anotações','Jaya da silva','EM_ANALISE');
+INSERT INTO cliente (id, anotacao, nome,status) VALUES (17,'sem anotações','Pelucia peluda da silva','LIBERADO');
+INSERT INTO cliente (id, anotacao, nome,status) VALUES (18,'sem anotações','Pequedo que é femea','EM_ANALISE');
+INSERT INTO cliente (id, anotacao, nome,status) VALUES (19,'sem anotações','Ninha','EM_ANALISE');
+INSERT INTO cliente (id, anotacao, nome,status) VALUES (20,'sem anotações','Ambrosio Lopes da Silva','LIBERADO');
+INSERT INTO cliente (id, anotacao, nome,status) VALUES (21,'sem anotações','Pitoquinho da silva','BLOQUEADO');
 
 
-
-INSERT INTO emprestimo.cliente (`nome`,`anotacao`,`status`) VALUES ("Sparks","soups","LIBERADO"),("Burks","soups","LIBERADO"),("Trujillo","seafood","LIBERADO"),("Doyle","cereals","LIBERADO"),("Daniel","pasta","LIBERADO"),("Le","sandwiches","LIBERADO"),("Chase","salads","LIBERADO"),("Macdonald","soups","LIBERADO"),("Slater","cereals","LIBERADO"),("Blackwell","sandwiches","LIBERADO");
-INSERT INTO emprestimo.cliente (`nome`,`anotacao`,`status`) VALUES ("Morgan","stews","BLOQUEADO"),("Camacho","desserts","BLOQUEADO"),("Dorsey","sandwiches","BLOQUEADO"),("Carroll","cereals","BLOQUEADO"),("Fuller","soups","BLOQUEADO"),("Anthony","pasta","BLOQUEADO"),("White","cereals","BLOQUEADO"),("Bush","seafood","BLOQUEADO"),("Strickland","sandwiches","BLOQUEADO"),("Howard","cereals","BLOQUEADO");
-INSERT INTO emprestimo.cliente (`nome`,`anotacao`,`status`) VALUES ("Santiago","sandwiches","LIBERADO"),("Boone","pasta","LIBERADO"),("Carpenter","sandwiches","LIBERADO"),("Hunter","soups","LIBERADO"),("Rogers","cereals","LIBERADO"),("Bowers","noodles","LIBERADO"),("Wyatt","desserts","LIBERADO"),("Gallegos","soups","LIBERADO"),("Brock","pasta","LIBERADO"),("Kim","pasta","LIBERADO");
-INSERT INTO emprestimo.cliente (`nome`,`anotacao`,`status`) VALUES ("Pena","cereals","BLOQUEADO"),("Rivas","cereals","BLOQUEADO"),("Chambers","salads","BLOQUEADO"),("Mcneil","salads","BLOQUEADO"),("Velez","pasta","BLOQUEADO"),("Herring","sandwiches","BLOQUEADO"),("Lambert","stews","BLOQUEADO"),("Gould","soups","BLOQUEADO"),("Walsh","pasta","BLOQUEADO"),("Copeland","salads","BLOQUEADO");
-INSERT INTO emprestimo.cliente (`nome`,`anotacao`,`status`) VALUES ("Todd","noodles","LIBERADO"),("Jefferson","pasta","LIBERADO"),("Dean","cereals","LIBERADO"),("Mcbride","seafood","LIBERADO"),("Frazier","desserts","LIBERADO"),("Ruiz","pies","LIBERADO"),("Logan","soups","LIBERADO"),("Mann","soups","LIBERADO"),("Beck","desserts","LIBERADO"),("Harding","cereals","LIBERADO");
-INSERT INTO emprestimo.cliente (`nome`,`anotacao`,`status`) VALUES ("Faulkner","noodles","BLOQUEADO"),("Kidd","pasta","BLOQUEADO"),("Mcdonald","seafood","BLOQUEADO"),("Chang","stews","BLOQUEADO"),("Vasquez","noodles","BLOQUEADO"),("Rogers","noodles","BLOQUEADO"),("Crosby","desserts","BLOQUEADO"),("Mckee","noodles","BLOQUEADO"),("Ramirez","noodles","BLOQUEADO"),("Logan","pasta","BLOQUEADO");
-INSERT INTO emprestimo.cliente (`nome`,`anotacao`,`status`) VALUES ("Joyner","salads","LIBERADO"),("Owen","seafood","LIBERADO"),("Macias","seafood","LIBERADO"),("Chan","soups","LIBERADO"),("Blake","pasta","LIBERADO"),("English","desserts","LIBERADO"),("Moran","sandwiches","LIBERADO"),("Abbott","pasta","LIBERADO"),("Figueroa","seafood","LIBERADO"),("Hicks","stews","LIBERADO");
-INSERT INTO emprestimo.cliente (`nome`,`anotacao`,`status`) VALUES ("Mcpherson","pasta","BLOQUEADO"),("Adams","seafood","BLOQUEADO"),("Castillo","salads","BLOQUEADO"),("Pollard","stews","BLOQUEADO"),("Downs","stews","BLOQUEADO"),("Lambert","desserts","BLOQUEADO"),("Mccarthy","desserts","BLOQUEADO"),("Sweeney","noodles","BLOQUEADO"),("Stevenson","pasta","BLOQUEADO"),("Dunlap","soups","BLOQUEADO");
-INSERT INTO emprestimo.cliente (`nome`,`anotacao`,`status`) VALUES ("Mccoy","cereals","LIBERADO"),("Barber","pies","LIBERADO"),("Love","desserts","LIBERADO"),("Rich","sandwiches","LIBERADO"),("Gallagher","stews","LIBERADO"),("Barry","stews","LIBERADO"),("Moon","noodles","LIBERADO"),("Compton","pies","LIBERADO"),("Patton","cereals","LIBERADO"),("Maddox","pies","LIBERADO");
-INSERT INTO emprestimo.cliente (`nome`,`anotacao`,`status`) VALUES ("Hopkins","stews","BLOQUEADO"),("Odom","stews","BLOQUEADO"),("Galloway","cereals","BLOQUEADO"),("Brooks","pasta","BLOQUEADO"),("Neal","sandwiches","BLOQUEADO"),("Wiggins","seafood","BLOQUEADO"),("Sexton","soups","BLOQUEADO"),("Stout","soups","BLOQUEADO"),("Bauer","pasta","BLOQUEADO"),("Pugh","pies","BLOQUEADO");

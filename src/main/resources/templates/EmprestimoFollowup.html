@@ -21,28 +21,17 @@
 					<tr>
 						<th class="text-center col-md-1">#</th>
 						<th>Nome</th>
-						<th class="text-center col-md-2">Valor Solicidado</th>
+						<th class="text-center col-md-2">Valor a receber</th>
 						<th class="text-right col-md-2">nº de parcelas</th>
 						<th class="text-center col-md-2">Data do emprestimo</th>
 
 					</tr>
 				</thead>
 				<tbody>
-				
-<!-- 				 class="bw-field-action"> 
-						<select class="js-example-basic-single col-md-3" id="cliente"
-							th:field="*{cliente}">
-					
-							<option th:each="cliente : ${clientes}" th:value="${cliente.id}"
-								th:text="${cliente.nome}"></option>
-						</select>
--->
-				
-				
 					<tr th:each="emprestimo : ${emprestimos}">
-						<td class="text-center" th:text="${emprestimo.id}">1</td>
+						<td class="text-center" th:text="${emprestimo.id}"></td>
 						<td th:text="${emprestimo.cliente.nome}"></td>
-						<td class="text-center" th:text="${emprestimo.valorEmprestimo}"></td>
+						<td class="text-center" th:text="${emprestimo.valorTotal}"></td>
 						<td class="text-right" th:text="${emprestimo.totalParcelas}"></td>
 						<td class="text-right" th:text="${emprestimo.dataEmprestimo}"></td>
 					</tr>

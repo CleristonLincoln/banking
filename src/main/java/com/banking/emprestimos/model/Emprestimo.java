@@ -3,6 +3,7 @@ package com.banking.emprestimos.model;
 import java.math.BigDecimal;
 import java.util.Date;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
@@ -28,19 +29,23 @@ public class Emprestimo {
 	
 	//valor solicitado
 	@DecimalMin(value = "0.01", message = "Valor não pode ser menor que 0,01")
-	@DecimalMax(value = "9999999.99", message = "Valor não pode ser maior que 9.999.999,99")
+	@DecimalMax(value = "99999.99", message = "Valor não pode ser maior que 99999.99")
 	@NumberFormat(pattern = "#,##0.00")
 	private BigDecimal valorEmprestimo;
 
+	//valor com o acrescimo dos juros
 	@DecimalMin(value = "0.01", message = "Valor não pode ser menor que 0,01")
 	@DecimalMax(value = "9999999.99", message = "Valor não pode ser maior que 9.999.999,99")
 	@NumberFormat(pattern = "#,##0.00")
 	private BigDecimal valorTotal;
 	
+	
+	//data em que o dinheiro foi entregue
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Temporal(TemporalType.DATE)
 	private Date dataEmprestimo;
 
+	//data em que deve ser pago a primeira parcela
 	//@DateTimeFormat(pattern = "dd/MM/yyyy")
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	@Temporal(TemporalType.DATE)
@@ -50,27 +55,43 @@ public class Emprestimo {
 	@Temporal(TemporalType.DATE)
 	private Date dataPagamento;
 
-	@DecimalMin(value = "0.01", message = "Valor não pode ser menor que 0,01")
-	@DecimalMax(value = "9999999.99", message = "Valor não pode ser maior que 9.999.999,99")
-	@NumberFormat(pattern = "#,##0.00")
+	//valor de cada parcela
 	private BigDecimal valorParcela;
 
+	//situação do recebimento da parcela
 	@Enumerated(EnumType.STRING)
 	private StatusParcela statusParcela;
 
+	//percentual de juros que será aplicado ao valor inicial
 	private BigDecimal percentual;
 
+	
+	//total de parcelas que será o financiamento
 	private Integer totalParcelas;
 
+	//numero de parcelas que foram pagas
 	private Integer parcelasPagas;
+	
+	//total de parcelas que ainda falta receber
+	@Column(name="parcelas_a_pagar")
 	private Integer parcelasAPagar;
+	
+	
+	//alguma anotação no financiamento
+	private String anotacao;
+	
+	
+	
+	
+	
+	
 	
 	
 	@ManyToOne
 	@JoinColumn(name = "cliente_id")
 	private Cliente cliente;
 	
-private String anotacao;
+
 	
 
 	public Integer getTotalParcelas() {

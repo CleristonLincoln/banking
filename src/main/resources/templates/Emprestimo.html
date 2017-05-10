@@ -8,11 +8,21 @@
 <title></title>
 </head>
 
+
 <section layout:fragment="conteudo01">
+
+	<button type="button" class="btn btn-primary btn-lg"
+		data-toggle="modal" data-target="#modalClienteRapido">
+		Cliente Rapido</button>
+
+
 
 
 	<form class="form-horizontal" id="myForm" role="form" method="post"
 		th:action="@{/emprestimos/novo}" th:object="${emprestimo}">
+
+
+
 
 
 		<div class="panel panel-default">
@@ -29,7 +39,7 @@
 					<div class="bw-field-action">
 						<select class="js-example-basic-single col-md-3" id="cliente"
 							th:field="*{cliente}">
-					
+<!-- 							<option>Selecione</option> -->
 							<option th:each="cliente : ${clientes}" th:value="${cliente.id}"
 								th:text="${cliente.nome}"></option>
 						</select>
@@ -58,11 +68,11 @@
 				</div>
 
 				<br>
-<div class="row">
+				<div class="row">
 					<label for="text" class="col-md-2 control-label">%</label>
 					<div class="col-sm-2">
 						<input type="number" class="form-control" id="percentual"
-							th:field="*{percentual}"  />
+							th:field="*{percentual}" />
 					</div>
 				</div>
 				<br>
@@ -81,8 +91,8 @@
 					<label for="nome" class="col-md-2 control-label">Data
 						primeira parcela</label>
 					<div class="col-sm-2">
-						<input type="date" class="form-control datepicker" id="primeiraEmprestimo"
-							th:field="*{primeiraEmprestimo}" />
+						<input type="date" class="form-control datepicker"
+							id="primeiraEmprestimo" th:field="*{primeiraEmprestimo}" />
 					</div>
 				</div>
 
@@ -90,7 +100,9 @@
 					<button type="submit" class="btn btn-primary">Salvar</button>
 				</div>
 
-				
+
+
+
 			</div>
 			<!-- fim do body -->
 
@@ -98,11 +110,7 @@
 		</div>
 
 	</form>
-
-
-
-
-
+	<div th:replace="ClienteRapido:: modal"></div>
 </section>
 
 
