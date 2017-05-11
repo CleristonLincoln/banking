@@ -41,17 +41,16 @@ public class Emprestimo {
 	
 	
 	//data em que o dinheiro foi entregue
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	@Temporal(TemporalType.DATE)
 	private Date dataEmprestimo;
 
 	//data em que deve ser pago a primeira parcela
-	//@DateTimeFormat(pattern = "dd/MM/yyyy")
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	@Temporal(TemporalType.DATE)
 	private Date primeiraEmprestimo;
 
-	@DateTimeFormat(pattern = "yyyy-MM-dd")
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	@Temporal(TemporalType.DATE)
 	private Date dataPagamento;
 
@@ -63,6 +62,7 @@ public class Emprestimo {
 	private StatusParcela statusParcela;
 
 	//percentual de juros que será aplicado ao valor inicial
+	@NumberFormat(pattern = "#,##0.00")
 	private BigDecimal percentual;
 
 	

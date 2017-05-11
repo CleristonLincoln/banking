@@ -36,12 +36,13 @@ public class EmprestimoController {
 		return mv;
 	}
 
-	@RequestMapping(value="/novo", method = RequestMethod.POST)
-	public ModelAndView salvar(@ModelAttribute Emprestimo emprestimo){
+	@RequestMapping(value = "/novo", method = RequestMethod.POST)
+	public ModelAndView salvar(@ModelAttribute Emprestimo emprestimo) {
+		
 		ModelAndView mv = new ModelAndView("/Emprestimo");
-	emprestimos.save(emprestimo);
-	System.out.println("Salvo>>>>>>>" +emprestimo);
-	return mv;
+		emprestimos.save(emprestimo);
+		System.out.println("Salvo>>>>>>>" + emprestimo);
+		return mv;
 	}
 	
 	
@@ -52,12 +53,7 @@ public class EmprestimoController {
 		ModelAndView mv = new ModelAndView("EmprestimoFollowup");
 		mv.addObject("emprestimos", todosEmprestimos);
 		mv.addObject("clientes", todosClientes);
-		
-		return mv;
-		
-		
-		
-		
-	}
 	
+		return mv;
+	}
 }

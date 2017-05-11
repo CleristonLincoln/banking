@@ -11,19 +11,8 @@
 
 <section layout:fragment="conteudo01">
 
-	<button type="button" class="btn btn-primary btn-lg"
-		data-toggle="modal" data-target="#modalClienteRapido">
-		Cliente Rapido</button>
-
-
-
-
-	<form class="form-horizontal" id="myForm" role="form" method="post"
+	<form class="form-horizontal " id="myForm" role="form" method="post"
 		th:action="@{/emprestimos/novo}" th:object="${emprestimo}">
-
-
-
-
 
 		<div class="panel panel-default">
 
@@ -37,12 +26,19 @@
 				<div class=" form-group">
 					<label for="cliente" class="col-md-2 control-label">Cliente</label>
 					<div class="bw-field-action">
-						<select class="js-example-basic-single col-md-3" id="cliente"
-							th:field="*{cliente}">
-<!-- 							<option>Selecione</option> -->
+						<select class="chosen-select chosen-rlt col-md-3" 
+							th:field="*{cliente}" >
+ 							<option value=""></option> <!--isso deve esta aqui para que o placeholder possa funcionar corretamente -->
 							<option th:each="cliente : ${clientes}" th:value="${cliente.id}"
-								th:text="${cliente.nome}"></option>
+								th:text="${cliente.nome}" ></option>
 						</select>
+						<div class="bw-field-action__icon">
+						<a href="#" data-toggle="modal" data-target="#modalClienteRapido">
+						<i class="glyphicon  glyphicon-plus-sign  bw-glyphicon-large"></i>
+						
+						</a>
+						
+						</div>
 					</div>
 				</div>
 
@@ -59,8 +55,7 @@
 
 				<br>
 				<div class="row">
-					<label for="nome" class="col-md-2  control-label">Numero de
-						parcelas</label>
+					<label for="nome" class="col-md-2  control-label">Numero de	parcelas</label>
 					<div class="col-sm-2">
 						<input type="text" class="form-control" id="totalParcelas"
 							th:field="*{totalParcelas}" placeholder="numero de parcelas" />
@@ -71,31 +66,31 @@
 				<div class="row">
 					<label for="text" class="col-md-2 control-label">%</label>
 					<div class="col-sm-2">
-						<input type="number" class="form-control" id="percentual"
+						<input type="text" class="form-control" id="percentual"
 							th:field="*{percentual}" />
 					</div>
 				</div>
 				<br>
 
-				<div class="row">
-					<label for="nome" class="col-md-2 control-label">Data
-						emprestimo</label>
+				<div class="row ">
+					<label for="nome" class="col-md-2 control-label">Data emprestimo</label>
 					<div class="col-sm-2">
-						<input type="date" class="form-control" id="dataEmprestimo"
-							th:field="*{dataEmprestimo}" />
+						<input type="text" class="form-control" id="dataEmprestimo"	th:field="*{dataEmprestimo}" 
+							data-provide="datepicker" data-date-format="dd/mm/yyyy" data-date-language="pt-BR"
+							data-date-autoclose="true" data-date-today-highlight="true" data-date-orientation="bottom"/>
 					</div>
 				</div>
 				<br>
 
-				<div class="form-group">
-					<label for="nome" class="col-md-2 control-label">Data
-						primeira parcela</label>
+				<div class="row ">
+					<label for="nome" class="col-md-2 control-label">Data primeira parcela</label>
 					<div class="col-sm-2">
-						<input type="date" class="form-control datepicker"
-							id="primeiraEmprestimo" th:field="*{primeiraEmprestimo}" />
+						<input type="text" class="form-control datepicker" th:field="*{primeiraEmprestimo}" 
+							data-provide="datepicker" data-date-format="dd/mm/yyyy" data-date-language="pt-BR"
+							data-date-autoclose="true" data-date-today-highlight="true" data-date-orientation="bottom"/>
 					</div>
 				</div>
-
+<br>
 				<div class="col-sm-offset-2 col-sm-10">
 					<button type="submit" class="btn btn-primary">Salvar</button>
 				</div>
@@ -110,7 +105,8 @@
 		</div>
 
 	</form>
-	<div th:replace="ClienteRapido:: modal"></div>
+<div th:replace="ClienteRapido:: modal"></div>
+	
 </section>
 
 

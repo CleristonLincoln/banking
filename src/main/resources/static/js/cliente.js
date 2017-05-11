@@ -1,8 +1,6 @@
-//$('#ClienteRapido').on('shown.bs.modal', function () {
-//  $('#modalClienteRapido').focus();
-//  $('submit_form').click(function(){
-//	  $('#modalClienteRapido').submit();
-//  })
-//})
-
-$('#modalCadastroRapido').modal(options)
+ $(document).ready(function() {
+    $('.chosen-select').chosen({
+      placeholder_text_single: "Selecione um nome...",
+      no_results_text: "Oops, nenhum nome encontrado!"
+    });  
+  });
