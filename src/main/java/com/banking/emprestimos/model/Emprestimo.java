@@ -1,17 +1,15 @@
 package com.banking.emprestimos.model;
 
-import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
 
-import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 import javax.validation.constraints.DecimalMax;
@@ -22,84 +20,100 @@ import org.springframework.format.annotation.NumberFormat;
 
 @Entity
 public class Emprestimo {
+	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Long id;
 
-	
-	//valor solicitado
+	// valor solicitado
 	@DecimalMin(value = "0.01", message = "Valor não pode ser menor que 0,01")
 	@DecimalMax(value = "99999.99", message = "Valor não pode ser maior que 99999.99")
 	@NumberFormat(pattern = "#,##0.00")
-	private BigDecimal valorEmprestimo;
+	private Double valorSolicitado;
 
-	//valor com o acrescimo dos juros
+	// valor com o acrescimo dos juros, valor total a receber
 	@DecimalMin(value = "0.01", message = "Valor não pode ser menor que 0,01")
 	@DecimalMax(value = "9999999.99", message = "Valor não pode ser maior que 9.999.999,99")
 	@NumberFormat(pattern = "#,##0.00")
-	private BigDecimal valorTotal;
-	
-	
-	//data em que o dinheiro foi entregue
+	private Double valorEmprestado;
+
+	// data em que o dinheiro foi entregue
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	@Temporal(TemporalType.DATE)
 	private Date dataEmprestimo;
 
-	//data em que deve ser pago a primeira parcela
+	// data em que deve ser pago a primeira parcela
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	@Temporal(TemporalType.DATE)
 	private Date primeiraEmprestimo;
 
-	@DateTimeFormat(pattern = "dd/MM/yyyy")
-	@Temporal(TemporalType.DATE)
-	private Date dataPagamento;
-
-	//valor de cada parcela
-	private BigDecimal valorParcela;
-
-	//situação do recebimento da parcela
-	@Enumerated(EnumType.STRING)
-	private StatusParcela statusParcela;
-
-	//percentual de juros que será aplicado ao valor inicial
+	// percentual de juros que será aplicado ao valor inicial
 	@NumberFormat(pattern = "#,##0.00")
-	private BigDecimal percentual;
+	private Double percentual;
 
-	
-	//total de parcelas que será o financiamento
-	private Integer totalParcelas;
 
-	//numero de parcelas que foram pagas
-	private Integer parcelasPagas;
-	
-	//total de parcelas que ainda falta receber
-	@Column(name="parcelas_a_pagar")
-	private Integer parcelasAPagar;
-	
-	
-	//alguma anotação no financiamento
+	// alguma anotação no financiamento
 	private String anotacao;
-	
-	
-	
-	
-	
-	
-	
-	
+
 	@ManyToOne
 	@JoinColumn(name = "cliente_id")
 	private Cliente cliente;
 	
-
+	
+	private Integer nParcelas;
+	private Double valorParcela;
+	@DateTimeFormat(pattern = "dd/MM/yyyy")
+	@Temporal(TemporalType.DATE)
+    private Date dataParcela;
 	
 
-	public Integer getTotalParcelas() {
-		return totalParcelas;
+
+	//um emprestimo tem varias parcelas
+	//So essa basta não precisara ser bidirecional
+	@OneToMany
+	private List<Parcela> parcela; 
+	
+		
+	public Integer getnParcelas() {
+		return nParcelas;
 	}
 
-	public void setTotalParcelas(Integer totalParcelas) {
-		this.totalParcelas = totalParcelas;
+	public void setnParcelas(Integer nParcelas) {
+		this.nParcelas = nParcelas;
+	}
+	
+
+	public List<Parcela> getParcela() {
+		return parcela;
+	}
+
+	public void setParcela(List<Parcela> parcela) {
+		this.parcela = parcela;
+	}
+
+	public Long getId() {
+		return id;
+	}
+
+	public void setId(Long id) {
+		this.id = id;
+	}
+
+	public Double getValorSolicitado() {
+		return valorSolicitado;
+	}
+
+	public void setValorSolicitado(Double valorSolicitado) {
+		this.valorSolicitado = valorSolicitado;
+	}
+
+	public Double getValorEmprestado() {
+		return valorEmprestado;
+	}
+
+	public void setValorEmprestado(Double valorEmprestado) {
+		this.valorEmprestado = valorEmprestado;
 	}
 
 	public Date getDataEmprestimo() {
@@ -117,86 +131,12 @@ public class Emprestimo {
 	public void setPrimeiraEmprestimo(Date primeiraEmprestimo) {
 		this.primeiraEmprestimo = primeiraEmprestimo;
 	}
-
-	public Cliente getCliente() {
-		return cliente;
-	}
-
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public BigDecimal getValorEmprestimo() {
-		return valorEmprestimo;
-	}
-
-	public void setValorEmprestimo(BigDecimal valorEmprestimo) {
-		this.valorEmprestimo = valorEmprestimo;
-	}
-
-	public BigDecimal getValorTotal() {
-		return valorTotal;
-	}
-
-	public void setValorTotal(BigDecimal valorTotal) {
-		this.valorTotal = valorTotal;
-	}
-
-	public StatusParcela getStatusParcela() {
-		return statusParcela;
-	}
-
-	public void setStatusParcela(StatusParcela statusParcela) {
-		this.statusParcela = statusParcela;
-	}
-
-	public BigDecimal getValorParcela() {
-		return valorParcela;
-	}
-
-	public void setValorParcela(BigDecimal valorParcela) {
-		this.valorParcela = valorParcela;
-	}
-
-	public Date getDataPagamento() {
-		return dataPagamento;
-	}
-
-	public void setDataPagamento(Date dataPagamento) {
-		this.dataPagamento = dataPagamento;
-	}
-
 	
-
-	public Integer getParcelasPagas() {
-		return parcelasPagas;
-	}
-
-	public void setParcelasPagas(Integer parcelasPagas) {
-		this.parcelasPagas = parcelasPagas;
-	}
-
-	public Integer getParcelasAPagar() {
-		return parcelasAPagar;
-	}
-
-	public void setParcelasAPagar(Integer parcelasAPagar) {
-		this.parcelasAPagar = parcelasAPagar;
-	}
-
-	public BigDecimal getPercentual() {
+	public Double getPercentual() {
 		return percentual;
 	}
 
-	public void setPercentual(BigDecimal percentual) {
+	public void setPercentual(Double percentual) {
 		this.percentual = percentual;
 	}
 
@@ -207,4 +147,28 @@ public class Emprestimo {
 	public void setAnotacao(String anotacao) {
 		this.anotacao = anotacao;
 	}
+
+	public Cliente getCliente() {
+		return cliente;
+	}
+
+	public void setCliente(Cliente cliente) {
+		this.cliente = cliente;
+	}
+	public Double getValorParcela() {
+		return valorParcela;
+	}
+
+	public void setValorParcela(Double valorParcela) {
+		this.valorParcela = valorParcela;
+	}
+
+	public Date getDataParcela() {
+		return dataParcela;
+	}
+
+	public void setDataParcela(Date dataParcela) {
+		this.dataParcela = dataParcela;
+	}
+
 }

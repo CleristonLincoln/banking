@@ -23,79 +23,84 @@
 			<div class="panel-body">
 
 
-				<div class=" form-group">
-					<label for="cliente" class="col-md-2 control-label">Cliente</label>
+				<div class="form-group">
+					<label for="cliente" class="col-md-2 control-label">Cliente:</label>
 					<div class="bw-field-action">
-						<select class="chosen-select chosen-rlt col-md-3" 
-							th:field="*{cliente}" >
- 							<option value=""></option> <!--isso deve esta aqui para que o placeholder possa funcionar corretamente -->
+						<select class="chosen-select chosen-rlt col-md-3"
+							th:field="*{cliente}">
+							<option value=""></option>
+							<!--isso deve esta aqui para que o placeholder possa funcionar corretamente -->
 							<option th:each="cliente : ${clientes}" th:value="${cliente.id}"
-								th:text="${cliente.nome}" ></option>
+								th:text="${cliente.nome}"></option>
 						</select>
 						<div class="bw-field-action__icon">
-						<a href="#" data-toggle="modal" data-target="#modalClienteRapido">
-						<i class="glyphicon  glyphicon-plus-sign  bw-glyphicon-large"></i>
-						
-						</a>
-						
+							<a href="#" data-toggle="modal" data-target="#modalClienteRapido">
+								<i class="glyphicon  glyphicon-plus-sign  bw-glyphicon-large"></i>
+							</a>
 						</div>
+
 					</div>
 				</div>
 
-
-
-				<div class="row">
-					<label for="nome" class="col-md-2 control-label">Valor
-						solicitado</label>
+				<div class="form-group">
+					<label for="nome" class="col-md-2  control-label">Valor
+						Solicitado:</label>
 					<div class="col-sm-2">
-						<input type="text" class="form-control" id="valorEmprestimo"
-							th:field="*{valorEmprestimo}" />
+						<input type="text" class="form-control" id="valorSolicitado"
+							th:field="*{valorSolicitado}" placeholder="Valor solicitado" />
 					</div>
 				</div>
 
-				<br>
-				<div class="row">
-					<label for="nome" class="col-md-2  control-label">Numero de	parcelas</label>
+
+				<div class="form-group">
+					<label for="nome" class="col-md-2  control-label">Numero de
+						parcelas:</label>
 					<div class="col-sm-2">
-						<input type="text" class="form-control" id="totalParcelas"
-							th:field="*{totalParcelas}" placeholder="numero de parcelas" />
+						<input type="text" class="form-control" id="nParcelas"
+							th:field="*{nParcelas}" placeholder="numero de parcelas" />
 					</div>
 				</div>
 
-				<br>
-				<div class="row">
-					<label for="text" class="col-md-2 control-label">%</label>
+				<div class="form-group">
+					<label for="nome" class="col-md-2  control-label">Percentual
+						Juros: </label>
 					<div class="col-sm-2">
 						<input type="text" class="form-control" id="percentual"
-							th:field="*{percentual}" />
+							th:field="*{percentual}" placeholder="% de juros" />
 					</div>
 				</div>
-				<br>
 
-				<div class="row ">
-					<label for="nome" class="col-md-2 control-label">Data emprestimo</label>
-					<div class="col-sm-2">
-						<input type="text" class="form-control" id="dataEmprestimo"	th:field="*{dataEmprestimo}" 
-							data-provide="datepicker" data-date-format="dd/mm/yyyy" data-date-language="pt-BR"
-							data-date-autoclose="true" data-date-today-highlight="true" data-date-orientation="bottom"/>
-					</div>
-				</div>
-				<br>
 
-				<div class="row ">
-					<label for="nome" class="col-md-2 control-label">Data primeira parcela</label>
+				<div class="form-group">
+					<label for="nome" class="col-md-2  control-label">Data
+						entrega dinheiro </label>
 					<div class="col-sm-2">
-						<input type="text" class="form-control datepicker" th:field="*{primeiraEmprestimo}" 
-							data-provide="datepicker" data-date-format="dd/mm/yyyy" data-date-language="pt-BR"
-							data-date-autoclose="true" data-date-today-highlight="true" data-date-orientation="bottom"/>
+						<input type="text" class="form-control" id="dataEmprestimo"
+							th:field="*{dataEmprestimo}" placeholder="entrega" />
 					</div>
 				</div>
-<br>
+
+				<div class="form-group">
+					<label for="nome" class="col-md-2  control-label">Pag. 1ª
+						parela: </label>
+					<div class="col-sm-2">
+						<input type="text" class="form-control" id="primeiraEmprestimo"
+							th:field="*{primeiraEmprestimo}" placeholder="data 1 pag" />
+					</div>
+				</div>
+
+				<div class="form-group">
+					<label for="nome" class="col-md-2  control-label">Anotação
+					</label>
+					<div class="col-sm-2">
+						<textarea class="form-control" id="anotacao"
+							th:field="*{anotacao}" placeholder="até 255 caracteres..."></textarea>
+					</div>
+				</div>
+
 				<div class="col-sm-offset-2 col-sm-10">
 					<button type="submit" class="btn btn-primary">Salvar</button>
 				</div>
-
-
 
 
 			</div>
@@ -105,8 +110,8 @@
 		</div>
 
 	</form>
-<div th:replace="ClienteRapido:: modal"></div>
-	
+	<div th:replace="ClienteRapido:: modal"></div>
+
 </section>
 
 

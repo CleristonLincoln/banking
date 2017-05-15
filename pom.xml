@@ -45,14 +45,15 @@
 			<artifactId>spring-boot-starter-web</artifactId>
 		</dependency>
 
+
+<!-- conector banco H2 -->
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 			<scope>runtime</scope>
 		</dependency>
 
-		<!-- Conector MySQL -->
-
+<!-- Conector MySQL -->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
@@ -60,7 +61,7 @@
 		</dependency>
 
 
-		<!-- DevTools -->
+<!-- DevTools -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
@@ -68,7 +69,7 @@
 
 
 
-		<!-- Tomcat -->
+<!-- Tomcat -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-tomcat</artifactId>
@@ -76,7 +77,7 @@
 		</dependency>
 
 
-		<!-- Test do String -->
+<!-- Test do String -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -84,7 +85,7 @@
 		</dependency>
 
 
-		<!-- Thymeleaf -->
+<!-- Thymeleaf -->
 		<dependency>
 			<groupId>org.thymeleaf</groupId>
 			<artifactId>thymeleaf</artifactId>
@@ -93,8 +94,7 @@
 
 
 
-		<!-- thymeleaf-spring4 -->
-
+<!-- thymeleaf-spring4 -->
 		<dependency>
 			<groupId>org.thymeleaf</groupId>
 			<artifactId>thymeleaf-spring4</artifactId>
@@ -103,19 +103,20 @@
 
 
 
-		<!-- Thymeleaf - Layout Dialect -->
+<!-- Thymeleaf - Layout Dialect -->
 		<dependency>
 			<groupId>nz.net.ultraq.thymeleaf</groupId>
 			<artifactId>thymeleaf-layout-dialect</artifactId>
 			<version>2.2.1</version>
 		</dependency>
 
-		<!-- Logging -->
+<!-- Logging -->
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-slf4j-impl</artifactId>
 			<version>${log4j.version}</version>
 		</dependency>
+
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-api</artifactId>

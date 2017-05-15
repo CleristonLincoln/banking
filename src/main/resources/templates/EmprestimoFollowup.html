@@ -20,20 +20,29 @@
 				<thead>
 					<tr>
 						<th class="text-center col-md-1">#</th>
-						<th>Nome</th>
-						<th class="text-center col-md-2">Valor a receber</th>
-						<th class="text-right col-md-2">nº de parcelas</th>
-						<th class="text-center col-md-2">Data do emprestimo</th>
-
+						<th class="text-center col-md-4">Nome</th>
+						<th class="text-center col-md-1">R$ Emp.</th><!--Valor devido do emprestimo-->
+						<th class="text-center col-md-1">Nº P</th><!--nº total da divida-->
+ 						<th class="text-center col-md-1">Nº P R</th> <!--nº Parcelas a receber-->
+						<th class="text-center col-md-1">R$ P R</th><!--Valor a receber-->
+						<th class="text-center col-md-2">Links</th><!--Visualizar um resumo do emrpestimo-->
+						
 					</tr>
 				</thead>
 				<tbody>
 					<tr th:each="emprestimo : ${emprestimos}">
 						<td class="text-center" th:text="${emprestimo.id}"></td>
-						<td th:text="${emprestimo.cliente.nome}"></td>
-						<td class="text-center" th:text="${emprestimo.valorTotal}"></td>
-						<td class="text-right" th:text="${emprestimo.totalParcelas}"></td>
-						<td class="text-right" th:text="${emprestimo.dataEmprestimo}"></td>
+						<td  th:text="${emprestimo.cliente.nome}"></td>
+						<td class="text-center" th:text="${emprestimo.valorEmprestado}"></td><!--Valor devido do emprestimo-->
+						<td class="text-center" th:text="${emprestimo.nParcelas}"></td><!--total de parcelas-->
+						<td class="text-center" th:text="${emprestimo.valorParcela}"></td><!--nº Parcelas a receber-->
+						<td class="text-center" th:text="${emprestimo.dataParcela}"></td><!--soma das parcelas a receber-->
+						<td >
+							<button type="button" class=" text-center btn btn-primary btn-xs">Resumo</button>
+							<button type="button" class=" text-center btn btn-primary btn-xs">Resumo</button>
+							<button type="button" class=" text-center btn btn-primary btn-xs">Resumo</button>
+						</td>
+						
 					</tr>
 				</tbody>
 			</table>
