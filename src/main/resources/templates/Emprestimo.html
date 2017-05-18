@@ -76,7 +76,10 @@
 						entrega dinheiro </label>
 					<div class="col-sm-2">
 						<input type="text" class="form-control" id="dataEmprestimo"
-							th:field="*{dataEmprestimo}" placeholder="entrega" />
+							th:field="*{dataEmprestimo}" placeholder="entrega"
+							data-provide="datepicker" data-date-format="dd/mm/yyyy"
+							data-date-language="pt-BR" data-date-autoclose="true"
+							data-date-today-highlight="true" data-date-orientation="bottom" />
 					</div>
 				</div>
 
@@ -85,18 +88,22 @@
 						parela: </label>
 					<div class="col-sm-2">
 						<input type="text" class="form-control" id="primeiraEmprestimo"
-							th:field="*{primeiraEmprestimo}" placeholder="data 1 pag" />
+							th:field="*{primeiraEmprestimo}" placeholder="data 1 pag"
+							data-provide="datepicker" data-date-format="dd/mm/yyyy"
+							data-date-language="pt-BR" data-date-autoclose="true"
+							data-date-today-highlight="true" data-date-orientation="bottom" />
 					</div>
 				</div>
 
 				<div class="form-group">
-					<label for="nome" class="col-md-2  control-label">Anotação
+					<label for="nome" class="col-md-2  control-label">Obs da parcela
 					</label>
 					<div class="col-sm-2">
-						<textarea class="form-control" id="anotacao"
-							th:field="*{anotacao}" placeholder="até 255 caracteres..."></textarea>
+						<textarea class="form-control" id="obs"
+							th:field="*{parcelaList}" placeholder="até 255 caracteres..."></textarea>
 					</div>
 				</div>
+
 
 				<div class="col-sm-offset-2 col-sm-10">
 					<button type="submit" class="btn btn-primary">Salvar</button>
@@ -113,6 +120,11 @@
 	<div th:replace="ClienteRapido:: modal"></div>
 
 </section>
-
-
 </html>
+
+
+
+
+
+
+

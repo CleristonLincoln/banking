@@ -1,5 +1,7 @@
 package com.banking.emprestimos.model;
 
+
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -52,7 +54,6 @@ public class Emprestimo {
 	@NumberFormat(pattern = "#,##0.00")
 	private Double percentual;
 
-
 	// alguma anotação no financiamento
 	private String anotacao;
 
@@ -60,113 +61,97 @@ public class Emprestimo {
 	@JoinColumn(name = "cliente_id")
 	private Cliente cliente;
 	
-	
 	private Integer nParcelas;
+	
 	private Double valorParcela;
+	
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
 	@Temporal(TemporalType.DATE)
     private Date dataParcela;
 	
-
-
 	//um emprestimo tem varias parcelas
 	//So essa basta não precisara ser bidirecional
-	@OneToMany
-	private List<Parcela> parcela; 
+	@OneToMany(mappedBy="emprestimo")
+	private List<Parcela> parcelaList;
+			
 	
+	public void adicionarParcelas(List<Parcela> parcelaList){
 		
+		this.parcelaList = parcelaList;
+		
+		
+	}
+	
+	
 	public Integer getnParcelas() {
 		return nParcelas;
 	}
-
 	public void setnParcelas(Integer nParcelas) {
 		this.nParcelas = nParcelas;
 	}
-	
-
-	public List<Parcela> getParcela() {
-		return parcela;
+	public List<Parcela> getParcelaList() {
+		return parcelaList;
 	}
-
-	public void setParcela(List<Parcela> parcela) {
-		this.parcela = parcela;
+	public void setParcelaList(List<Parcela> parcelaList) {
+		this.parcelaList = parcelaList;
 	}
-
 	public Long getId() {
 		return id;
 	}
-
 	public void setId(Long id) {
 		this.id = id;
 	}
-
 	public Double getValorSolicitado() {
 		return valorSolicitado;
 	}
-
 	public void setValorSolicitado(Double valorSolicitado) {
 		this.valorSolicitado = valorSolicitado;
 	}
-
 	public Double getValorEmprestado() {
 		return valorEmprestado;
 	}
-
 	public void setValorEmprestado(Double valorEmprestado) {
 		this.valorEmprestado = valorEmprestado;
 	}
-
 	public Date getDataEmprestimo() {
 		return dataEmprestimo;
 	}
-
 	public void setDataEmprestimo(Date dataEmprestimo) {
 		this.dataEmprestimo = dataEmprestimo;
 	}
-
 	public Date getPrimeiraEmprestimo() {
 		return primeiraEmprestimo;
 	}
-
 	public void setPrimeiraEmprestimo(Date primeiraEmprestimo) {
 		this.primeiraEmprestimo = primeiraEmprestimo;
 	}
-	
 	public Double getPercentual() {
 		return percentual;
 	}
-
 	public void setPercentual(Double percentual) {
 		this.percentual = percentual;
 	}
-
 	public String getAnotacao() {
 		return anotacao;
 	}
-
 	public void setAnotacao(String anotacao) {
 		this.anotacao = anotacao;
 	}
-
 	public Cliente getCliente() {
 		return cliente;
 	}
-
 	public void setCliente(Cliente cliente) {
 		this.cliente = cliente;
 	}
 	public Double getValorParcela() {
 		return valorParcela;
 	}
-
 	public void setValorParcela(Double valorParcela) {
 		this.valorParcela = valorParcela;
 	}
-
 	public Date getDataParcela() {
 		return dataParcela;
 	}
-
 	public void setDataParcela(Date dataParcela) {
 		this.dataParcela = dataParcela;
 	}

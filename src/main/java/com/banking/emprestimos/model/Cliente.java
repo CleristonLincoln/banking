@@ -28,8 +28,17 @@ public class Cliente {
 	@OneToMany(mappedBy = "cliente")
 	private List<Emprestimo> emprestimos;
 	
+	@OneToMany(mappedBy="cliente")
+	private List<Parcela> parcelas;
 	
-	
+
+	public List<Parcela> getParcelas() {
+		return parcelas;
+	}
+
+	public void setParcelas(List<Parcela> parcelas) {
+		this.parcelas = parcelas;
+	}
 
 	public List<Emprestimo> getEmprestimos() {
 		return emprestimos;

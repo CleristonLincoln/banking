@@ -46,7 +46,7 @@ public class ClienteController {
 		}
 		
 		clientes.save(cliente);
-		attributes.addFlashAttribute("mensagem", "Cliente Salvocom sucesso");
+		attributes.addFlashAttribute("mensagem", "Cliente Salvo com sucesso");
 		System.out.println("Salvo>>>>>>>" +cliente);
 		return "redirect:/clientes/novo";
 		
@@ -56,6 +56,15 @@ public class ClienteController {
 	public List<StatusCliente> todosStatusCliente(){
 		return Arrays.asList(StatusCliente.values());
 	}
+	
+	
+	
+	
+	
+	
+	
+	
+	
 	
 	
 	
