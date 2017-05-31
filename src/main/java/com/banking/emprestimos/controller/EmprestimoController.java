@@ -50,22 +50,27 @@ public class EmprestimoController {
 	@RequestMapping(value = "/novo", method = RequestMethod.POST)
 	public String salvar(Emprestimo emprestimo, Model model) {
 
-		
+		try {
+			emprestimoService.salvar(emprestimo);
+			
+		} catch (Exception e) {
+		System.out.println(e.getMessage());	
+		System.out.println("Salvo>>>>>>>" + emprestimo);
+		}
 	
-		emprestimoService.salvar(emprestimo);
 		System.out.println("Salvo>>>>>>>" + emprestimo);
 		return "redirect:/emprestimos/novo";
 	}
 
 	
 	@RequestMapping
-	public ModelAndView pesquisar() {
+	public String pesquisar() {
 		List<Emprestimo> todosEmprestimos = emprestimos.findAll();
 		List<Cliente> todosClientes = clientes.findAll();
 		ModelAndView mv = new ModelAndView("EmprestimoFollowup");
 		mv.addObject("emprestimos", todosEmprestimos);
 		mv.addObject("clientes", todosClientes);
 
-		return mv;
+		return "redirect:/EmprestimoFollowup";
 	}
 }

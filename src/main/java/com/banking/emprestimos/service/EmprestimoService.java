@@ -17,10 +17,8 @@ public class EmprestimoService {
 	@Autowired
 	private Emprestimos emprestimos;
 
-//	@Autowired 
-//	private Parcela p;
-//	
 	
+	private Parcela p = new Parcela();
 	
 	
 	
@@ -31,30 +29,37 @@ public class EmprestimoService {
 		Double a = emprestimo.getValorSolicitado();//valor que esta pedindo
 		Double b = emprestimo.getPercentual();//percentualde juros sobre o valor emprestado
 		Double c = (a + (a * b / 100));//valor total que deverá ser pago
-		int nP = emprestimo.getNParcelas();//numero deparcelas em que o emrpestimo será pago
+		
 		emprestimo.setValorEmprestado(c);//salva o valor a ser cobrado
-		Double vParcela = c/nP;
 	
-		// --------------- gerador das parcelas -------------
+	
+	
 
 		
-		ArrayList<Parcela> parcelas = new ArrayList<>();
-		Parcela p = new Parcela();
-		for (int i = 0; i < nP; i++) {
-			p.setNParcela(i);
-			p.setValorParcela(vParcela);
 		
-			
+			gerarPrcelas(emprestimo);
+		emprestimos.save(emprestimo);
+
+	}
+	
+	public void gerarPrcelas(Emprestimo emprestimo) {
+
+		ArrayList<Parcela> parcelas = new ArrayList<>();
+
+		int nParcelas = emprestimo.getNParcelas();
+		double valorParcelas = emprestimo.getValorEmprestado() / nParcelas;
+		for (int i = 0; i < nParcelas; i++) {
+			p.setNParcela(i);
+			p.setValorParcela(valorParcelas);
+			p.setEmprestimo(emprestimo);
+
 			parcelas.add(p);
 			p = new Parcela();
 		}
 		emprestimo.setListaParcelas(parcelas);
-	
-		
-
-		
-		emprestimos.save(emprestimo);
 
 	}
+	
+	
 
 }
