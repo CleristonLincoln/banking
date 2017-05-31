@@ -8,4 +8,8 @@ import com.banking.emprestimos.model.Cliente;
 @Repository
 public interface Clientes extends JpaRepository<Cliente, Long> {
 
+	//@Query("select from Cliente  were nome:=nome")
+	//public Cliente buscarPorNome(@Param("nome") String nome);
+	
+	
 }

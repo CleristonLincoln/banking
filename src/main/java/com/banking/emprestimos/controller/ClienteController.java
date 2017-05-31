@@ -27,10 +27,12 @@ public class ClienteController {
 	private Clientes clientes;
 	
 	
+	
 	@RequestMapping("/novo")
 	public ModelAndView view(){
 		ModelAndView mv = new ModelAndView("/Cliente");
 		mv.addObject(new Cliente());
+		mv.addObject("listaDeClientes", clientes.findAll());
 		return mv;
 	}
 	

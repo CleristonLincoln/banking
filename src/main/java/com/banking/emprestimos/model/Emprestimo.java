@@ -1,15 +1,15 @@
 package com.banking.emprestimos.model;
 
-
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
@@ -20,9 +20,16 @@ import javax.validation.constraints.DecimalMin;
 import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.format.annotation.NumberFormat;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+
 @Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Emprestimo {
-	
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
@@ -58,102 +65,24 @@ public class Emprestimo {
 	private String anotacao;
 
 	@ManyToOne
-	@JoinColumn(name = "cliente_id")
 	private Cliente cliente;
-	
-	private Integer nParcelas;
-	
-	private Double valorParcela;
-	
-	@DateTimeFormat(pattern = "dd/MM/yyyy")
-	@Temporal(TemporalType.DATE)
-    private Date dataParcela;
-	
-	//um emprestimo tem varias parcelas
-	//So essa basta não precisara ser bidirecional
-	@OneToMany(mappedBy="emprestimo")
-	private List<Parcela> parcelaList;
-			
-	
-	public void adicionarParcelas(List<Parcela> parcelaList){
-		
-		this.parcelaList = parcelaList;
-		
-		
-	}
-	
-	
-	public Integer getnParcelas() {
-		return nParcelas;
-	}
-	public void setnParcelas(Integer nParcelas) {
-		this.nParcelas = nParcelas;
-	}
-	public List<Parcela> getParcelaList() {
-		return parcelaList;
-	}
-	public void setParcelaList(List<Parcela> parcelaList) {
-		this.parcelaList = parcelaList;
-	}
-	public Long getId() {
-		return id;
-	}
-	public void setId(Long id) {
-		this.id = id;
-	}
-	public Double getValorSolicitado() {
-		return valorSolicitado;
-	}
-	public void setValorSolicitado(Double valorSolicitado) {
-		this.valorSolicitado = valorSolicitado;
-	}
-	public Double getValorEmprestado() {
-		return valorEmprestado;
-	}
-	public void setValorEmprestado(Double valorEmprestado) {
-		this.valorEmprestado = valorEmprestado;
-	}
-	public Date getDataEmprestimo() {
-		return dataEmprestimo;
-	}
-	public void setDataEmprestimo(Date dataEmprestimo) {
-		this.dataEmprestimo = dataEmprestimo;
-	}
-	public Date getPrimeiraEmprestimo() {
-		return primeiraEmprestimo;
-	}
-	public void setPrimeiraEmprestimo(Date primeiraEmprestimo) {
-		this.primeiraEmprestimo = primeiraEmprestimo;
-	}
-	public Double getPercentual() {
-		return percentual;
-	}
-	public void setPercentual(Double percentual) {
-		this.percentual = percentual;
-	}
-	public String getAnotacao() {
-		return anotacao;
-	}
-	public void setAnotacao(String anotacao) {
-		this.anotacao = anotacao;
-	}
-	public Cliente getCliente() {
-		return cliente;
-	}
-	public void setCliente(Cliente cliente) {
-		this.cliente = cliente;
-	}
-	public Double getValorParcela() {
-		return valorParcela;
-	}
-	public void setValorParcela(Double valorParcela) {
-		this.valorParcela = valorParcela;
-	}
-	public Date getDataParcela() {
-		return dataParcela;
-	}
-	public void setDataParcela(Date dataParcela) {
-		this.dataParcela = dataParcela;
-	}
 
+	@Getter
+	private Integer nParcelas;
+
+
+	
+
+	
+//	----------------------------- RELACIONAMENTOS -----------------------------
+	
+		
+	// um emprestimo tem varias parcelas
+	// So essa basta não precisara ser bidirecional
+	@OneToMany(mappedBy = "emprestimo", cascade = CascadeType.ALL)
+	private List<Parcela> listaParcelas;
+
+
+		
+	
 }

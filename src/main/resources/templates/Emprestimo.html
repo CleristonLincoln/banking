@@ -43,8 +43,7 @@
 				</div>
 
 				<div class="form-group">
-					<label for="nome" class="col-md-2  control-label">Valor
-						Solicitado:</label>
+					<label for="nome" class="col-md-2  control-label">Valor Solicitado:</label>
 					<div class="col-sm-2">
 						<input type="text" class="form-control" id="valorSolicitado"
 							th:field="*{valorSolicitado}" placeholder="Valor solicitado" />
@@ -53,8 +52,7 @@
 
 
 				<div class="form-group">
-					<label for="nome" class="col-md-2  control-label">Numero de
-						parcelas:</label>
+					<label for="nome" class="col-md-2  control-label">Número de	parcelas:</label>
 					<div class="col-sm-2">
 						<input type="text" class="form-control" id="nParcelas"
 							th:field="*{nParcelas}" placeholder="numero de parcelas" />
@@ -95,31 +93,25 @@
 					</div>
 				</div>
 
-				<div class="form-group">
-					<label for="nome" class="col-md-2  control-label">Obs da parcela
-					</label>
-					<div class="col-sm-2">
-						<textarea class="form-control" id="obs"
-							th:field="*{parcelaList}" placeholder="até 255 caracteres..."></textarea>
-					</div>
-				</div>
 
-
-				<div class="col-sm-offset-2 col-sm-10">
+				<div>
 					<button type="submit" class="btn btn-primary">Salvar</button>
 				</div>
-
-
 			</div>
-			<!-- fim do body -->
-
 
 		</div>
+		
+
+
+		
 
 	</form>
 	<div th:replace="ClienteRapido:: modal"></div>
 
 </section>
+
+
+
 </html>
 
 

@@ -10,7 +10,14 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
 @Entity
+@Data
+@AllArgsConstructor
+@NoArgsConstructor
 public class Cliente {
 
 	@Id
@@ -21,63 +28,18 @@ public class Cliente {
 
 	private String anotacao;
 
+	
+
+//	----------------------------- RELACIONAMENTOS -----------------------------
+
+	
+
 	@Enumerated(EnumType.STRING)
 	private StatusCliente status;
-	
-	
+
 	@OneToMany(mappedBy = "cliente")
 	private List<Emprestimo> emprestimos;
+
 	
-	@OneToMany(mappedBy="cliente")
-	private List<Parcela> parcelas;
 	
-
-	public List<Parcela> getParcelas() {
-		return parcelas;
-	}
-
-	public void setParcelas(List<Parcela> parcelas) {
-		this.parcelas = parcelas;
-	}
-
-	public List<Emprestimo> getEmprestimos() {
-		return emprestimos;
-	}
-
-	public void setEmprestimos(List<Emprestimo> emprestimos) {
-		this.emprestimos = emprestimos;
-	}
-
-	public StatusCliente getStatus() {
-		return status;
-	}
-
-	public void setStatus(StatusCliente status) {
-		this.status = status;
-	}
-
-	public Long getId() {
-		return id;
-	}
-
-	public void setId(Long id) {
-		this.id = id;
-	}
-
-	public String getNome() {
-		return nome;
-	}
-
-	public void setNome(String nome) {
-		this.nome = nome;
-	}
-
-	public String getAnotacao() {
-		return anotacao;
-	}
-
-	public void setAnotacao(String anotacao) {
-		this.anotacao = anotacao;
-	}
-
 }

@@ -63,6 +63,51 @@
 
 	</form>
 
+
+
+<div class="panel panel-primary">
+		<div class="panel-heading">
+			<h1 class="panel-title aw-titulo-panel">Lista de clientes cadastrados</h1>
+		</div>
+
+		<div class="panel-body">
+			<table class="table table-bordered table-striped" id="tabela_cliente">
+				<thead>
+					<tr>
+						<th class="text-center col-md-1">#</th>
+						<th class="text-center col-md-2">Nome</th>
+						<th class="text-center col-md-1">Status</th>
+						<th class="text-center col-md-1">Links</th>
+						
+					</tr>
+				</thead>
+				<tbody>
+					<tr th:each="cliente: ${listaDeClientes}">
+						<td class="text-center" th:text="${cliente.id}"></td>
+						<td  th:text="${cliente.nome}"></td>
+						<td class="text-center" th:text="${cliente.status.descricao}">
+						<td >
+							<button type="button" class=" text-center btn btn-primary btn-xs">Resumo</button>
+							<button type="button" class=" text-center btn btn-primary btn-xs">Resumo</button>
+							<button type="button" class=" text-center btn btn-primary btn-xs">Resumo</button>
+						</td>
+						
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		
+	</div>
+
+
+
+
+
+
+
+
+
+
 	</div>
 
 </section>
