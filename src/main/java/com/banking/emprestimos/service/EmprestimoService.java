@@ -16,31 +16,27 @@ public class EmprestimoService {
 
 	@Autowired
 	private Emprestimos emprestimos;
-
 	
+
 	private Parcela p = new Parcela();
 	
-	
-	
 	@Transactional
-	public void salvar(Emprestimo emprestimo) {
-
-		// --------------- calcula o valor a receber -------------
+	public void salvarEmprestimo(Emprestimo emprestimo){
+		
 		Double a = emprestimo.getValorSolicitado();//valor que esta pedindo
 		Double b = emprestimo.getPercentual();//percentualde juros sobre o valor emprestado
 		Double c = (a + (a * b / 100));//valor total que deverá ser pago
 		
 		emprestimo.setValorEmprestado(c);//salva o valor a ser cobrado
 	
-	
-	
-
 		
 		
 			gerarPrcelas(emprestimo);
 		emprestimos.save(emprestimo);
-
+		
+		
 	}
+	
 	
 	public void gerarPrcelas(Emprestimo emprestimo) {
 
@@ -61,5 +57,4 @@ public class EmprestimoService {
 	}
 	
 	
-
 }

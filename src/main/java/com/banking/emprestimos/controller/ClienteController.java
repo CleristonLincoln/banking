@@ -42,7 +42,7 @@ public class ClienteController {
 		
 		
 		if(result.hasErrors()){
-			model.addAttribute("mensagem", "Erro noformulario");
+			model.addAttribute("mensagem", "Erro no formulario");
 		
 			return "/Cliente";
 		}

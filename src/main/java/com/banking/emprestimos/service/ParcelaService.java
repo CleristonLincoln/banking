@@ -15,7 +15,7 @@ public class ParcelaService {
 	@Autowired
 	private Parcelas parcelas;
 	
-	Emprestimo emprestimo;
+	
 	
 	@Transactional
 	public void salvar(Parcela parcela){

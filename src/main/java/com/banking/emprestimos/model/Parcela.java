@@ -14,6 +14,7 @@ import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 import org.springframework.format.annotation.DateTimeFormat;
+import org.springframework.format.annotation.NumberFormat;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -36,6 +37,7 @@ public class Parcela {
 	@Temporal(TemporalType.DATE)
 	private Date dataPagamento;
 
+	@NumberFormat(pattern = "#,##0.00")
 	private Double valorParcela;
 
 	@Embedded
