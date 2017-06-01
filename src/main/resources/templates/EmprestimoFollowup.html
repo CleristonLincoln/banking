@@ -32,17 +32,7 @@
 				<tbody>
 					<tr th:each="emprestimo : ${emprestimos}">
 						<td class="text-center" th:text="${emprestimo.id}"></td>
-						<td  th:text="${emprestimo.cliente.nome}"></td>
-						<td class="text-center" th:text="${emprestimo.valorEmprestado}"></td><!--Valor devido do emprestimo-->
-						<td class="text-center" th:text="${emprestimo.nParcelas}"></td><!--total de parcelas-->
-						<td class="text-center" th:text="${emprestimo.valorParcela}"></td><!--nº Parcelas a receber-->
-						<td class="text-center" th:text="${emprestimo.dataParcela}"></td><!--soma das parcelas a receber-->
-						<td >
-							<button type="button" class=" text-center btn btn-primary btn-xs">Resumo</button>
-							<button type="button" class=" text-center btn btn-primary btn-xs">Resumo</button>
-							<button type="button" class=" text-center btn btn-primary btn-xs">Resumo</button>
-						</td>
-						
+						<td th:text="${emprestimo.cliente.nome}"></td>
 					</tr>
 				</tbody>
 			</table>

@@ -43,7 +43,8 @@
 				</div>
 
 				<div class="form-group">
-					<label for="nome" class="col-md-2  control-label">Valor Solicitado:</label>
+					<label for="nome" class="col-md-2  control-label">Valor
+						Solicitado:</label>
 					<div class="col-sm-2">
 						<input type="text" class="form-control" id="valorSolicitado"
 							th:field="*{valorSolicitado}" placeholder="Valor solicitado" />
@@ -52,7 +53,8 @@
 
 
 				<div class="form-group">
-					<label for="nome" class="col-md-2  control-label">Número de	parcelas:</label>
+					<label for="nome" class="col-md-2  control-label">Número de
+						parcelas:</label>
 					<div class="col-sm-2">
 						<input type="text" class="form-control" id="nParcelas"
 							th:field="*{nParcelas}" placeholder="numero de parcelas" />
@@ -95,15 +97,31 @@
 
 
 				<div>
+					<select class="chosen-select-semana chosen-rlt col-md-3">
+						<option value="">Domingo</option>
+						<option value="">Segunda</option>
+						<option value="">Terça</option>
+						<option value="">Quarta</option>
+						<option value="">Quinta</option>
+						<option value="">Sexta</option>
+						<option value="">Sábado</option>
+
+					</select>
+				</div>
+
+<br>
+<br>
+
+				<div>
 					<button type="submit" class="btn btn-primary">Salvar</button>
 				</div>
 			</div>
 
 		</div>
-		
 
 
-		
+
+
 
 	</form>
 	<div th:replace="ClienteRapido:: modal"></div>

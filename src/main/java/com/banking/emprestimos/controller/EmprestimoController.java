@@ -1,11 +1,14 @@
 package com.banking.emprestimos.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.banking.emprestimos.model.Cliente;
 import com.banking.emprestimos.model.Emprestimo;
 import com.banking.emprestimos.repository.Clientes;
 import com.banking.emprestimos.repository.Emprestimos;
@@ -17,6 +20,9 @@ public class EmprestimoController {
 
 	@Autowired
 	private Clientes clientes;
+	
+	@Autowired
+	Emprestimos emprestimos;
 	
 	@Autowired
 	private EmprestimoService emprestimoService;
@@ -40,4 +46,28 @@ public class EmprestimoController {
 		return mv;
 	}
 	
+@RequestMapping
+public ModelAndView pesquisar(){
+	
+	List<Emprestimo> todosEmprestimos = emprestimos.findAll();
+	List<Cliente> todosClientes = clientes.findAll();
+	
+	ModelAndView mv = new ModelAndView("/EmprestimoFollowup");
+	mv.addObject("emprestimos", emprestimos.findAll());
+	mv.addObject("clientes", clientes.findAll());
+	
+	return mv;
 }
+	
+	
+}
+
+
+
+
+
+
+
+
+
+

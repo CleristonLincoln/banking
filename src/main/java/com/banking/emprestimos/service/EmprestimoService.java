@@ -1,6 +1,9 @@
 package com.banking.emprestimos.service;
 
+import java.text.DateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Date;
 
 import javax.transaction.Transactional;
 
@@ -32,29 +35,45 @@ public class EmprestimoService {
 		
 		
 			gerarPrcelas(emprestimo);
+			
 		emprestimos.save(emprestimo);
 		
 		
 	}
 	
 	
+	
+
 	public void gerarPrcelas(Emprestimo emprestimo) {
 
 		ArrayList<Parcela> parcelas = new ArrayList<>();
 
 		int nParcelas = emprestimo.getNParcelas();
+		
 		double valorParcelas = emprestimo.getValorEmprestado() / nParcelas;
 		for (int i = 0; i < nParcelas; i++) {
 			p.setNParcela(i);
 			p.setValorParcela(valorParcelas);
 			p.setEmprestimo(emprestimo);
-
+			
+	p.setDataPagamento(dataParcelas(emprestimo));		
 			parcelas.add(p);
 			p = new Parcela();
 		}
 		emprestimo.setListaParcelas(parcelas);
 
 	}
+	
+	public  Calendar dataParcelas(Emprestimo emprestimo){
+		Calendar calendario = Calendar.getInstance();
+		
+	
+		
+		return calendario;
+		
+	}
+	
+	
 	
 	
 }

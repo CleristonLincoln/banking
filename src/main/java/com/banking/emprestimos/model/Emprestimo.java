@@ -1,18 +1,15 @@
 package com.banking.emprestimos.model;
 
-import java.util.Date;
+import java.util.Calendar;
 import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 import javax.validation.constraints.DecimalMax;
 import javax.validation.constraints.DecimalMin;
 
@@ -48,13 +45,11 @@ public class Emprestimo {
 
 	// data em que o dinheiro foi entregue
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
-	@Temporal(TemporalType.DATE)
-	private Date dataEmprestimo;
+	private Calendar dataEmprestimo;
 
 	// data em que deve ser pago a primeira parcela
 	@DateTimeFormat(pattern = "dd/MM/yyyy")
-	@Temporal(TemporalType.DATE)
-	private Date primeiraEmprestimo;
+	private Calendar primeiraEmprestimo;
 
 	// percentual de juros que será aplicado ao valor inicial
 	@NumberFormat(pattern = "#,##0.00")
