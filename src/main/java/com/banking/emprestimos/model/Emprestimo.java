@@ -1,6 +1,6 @@
 package com.banking.emprestimos.model;
 
-import java.util.Calendar;
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -18,7 +18,6 @@ import org.springframework.format.annotation.NumberFormat;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
 
 @Entity
@@ -44,12 +43,12 @@ public class Emprestimo {
 	private Double valorEmprestado;
 
 	// data em que o dinheiro foi entregue
-	@DateTimeFormat(pattern = "dd/MM/yyyy")
-	private Calendar dataEmprestimo;
+	@DateTimeFormat(pattern="dd/MM/yyyy")	
+	private LocalDate dataEmprestimo;
 
 	// data em que deve ser pago a primeira parcela
-	@DateTimeFormat(pattern = "dd/MM/yyyy")
-	private Calendar primeiraEmprestimo;
+	@DateTimeFormat(pattern="dd/MM/yyyy")	
+	private LocalDate primeiraEmprestimo;
 
 	// percentual de juros que será aplicado ao valor inicial
 	@NumberFormat(pattern = "#,##0.00")
@@ -58,10 +57,10 @@ public class Emprestimo {
 	// alguma anotação no financiamento
 	private String anotacao;
 
-	
-	@Getter
+
 	private Integer nParcelas;
 
+	private Integer pPEmprestimo; //periodicidade em que o emprestimo será pago.
 
 	
 

@@ -11,7 +11,7 @@
 	<name>banking</name>
 	<description>controledeemprestimos pessoais</description>
 
-<parent>
+	<parent>
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>1.5.3.RELEASE</version>
@@ -34,11 +34,62 @@
 	<dependencies>
 
 
-		
+
 		<dependency>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-data-jpa</artifactId>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-jpa</artifactId>
+
+<!-- 			<exclusions> -->
+<!-- 				<exclusion>  Aqui você declara a exclusão -->
+<!-- 					<groupId>org.springframework.boot</groupId> -->
+<!-- 					<artifactId>spring-boot-starter-data-jpa</artifactId> -->
+<!-- 				</exclusion> -->
+
+<!-- 				<exclusion> -->
+<!-- 					<groupId>org.hibernate.common</groupId> -->
+<!-- 					<artifactId>hibernate-commons-annotations</artifactId> -->
+<!-- 				</exclusion> -->
+
+<!-- 				<exclusion> -->
+<!-- 					<groupId>org.hibernate.javax.persistence</groupId> -->
+<!-- 					<artifactId>hibernate-jpa-2.1-api</artifactId> -->
+
+<!-- 				</exclusion> -->
+<!-- 				<exclusion> -->
+<!-- 					<artifactId>hibernate-entitymanager</artifactId> -->
+<!-- 					<groupId>org.hibernate</groupId> -->
+<!-- 				</exclusion> -->
+<!-- 			</exclusions> -->
+
 		</dependency>
+		<!-- https://mvnrepository.com/artifact/javax.validation/validation-api -->
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+			<version>2.0.0.Beta2</version>
+		</dependency>
+
+
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>5.2.10.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>5.2.10.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-java8</artifactId>
+			<version>5.2.10.Final</version>
+		</dependency>
+
+
+
+
+
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -46,14 +97,14 @@
 		</dependency>
 
 
-<!-- conector banco H2 -->
+		<!-- conector banco H2 -->
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
 			<scope>runtime</scope>
 		</dependency>
 
-<!-- Conector MySQL -->
+		<!-- Conector MySQL -->
 		<dependency>
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
@@ -61,7 +112,7 @@
 		</dependency>
 
 
-<!-- DevTools -->
+		<!-- DevTools -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-devtools</artifactId>
@@ -69,7 +120,7 @@
 
 
 
-<!-- Tomcat -->
+		<!-- Tomcat -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-tomcat</artifactId>
@@ -77,7 +128,7 @@
 		</dependency>
 
 
-<!-- Test do String -->
+		<!-- Test do String -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
@@ -85,7 +136,7 @@
 		</dependency>
 
 
-<!-- Thymeleaf -->
+		<!-- Thymeleaf -->
 		<dependency>
 			<groupId>org.thymeleaf</groupId>
 			<artifactId>thymeleaf</artifactId>
@@ -94,7 +145,7 @@
 
 
 
-<!-- thymeleaf-spring4 -->
+		<!-- thymeleaf-spring4 -->
 		<dependency>
 			<groupId>org.thymeleaf</groupId>
 			<artifactId>thymeleaf-spring4</artifactId>
@@ -103,46 +154,54 @@
 
 
 
-<!-- Thymeleaf - Layout Dialect -->
+		<!-- Thymeleaf - Layout Dialect -->
 		<dependency>
 			<groupId>nz.net.ultraq.thymeleaf</groupId>
 			<artifactId>thymeleaf-layout-dialect</artifactId>
-			<version>2.2.1</version><!--$NO-MVN-MAN-VER$-->
+			<version>2.2.1</version><!--$NO-MVN-MAN-VER$ -->
 		</dependency>
 
-<!-- Logging -->
+
+
+
+
+
+		<!-- Logging -->
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-slf4j-impl</artifactId>
-			<version>${log4j.version}</version><!--$NO-MVN-MAN-VER$-->
+			<version>${log4j.version}</version><!--$NO-MVN-MAN-VER$ -->
 		</dependency>
 
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-api</artifactId>
-			<version>${log4j.version}</version><!--$NO-MVN-MAN-VER$-->
+			<version>${log4j.version}</version><!--$NO-MVN-MAN-VER$ -->
 		</dependency>
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>
 			<artifactId>log4j-core</artifactId>
-			<version>${log4j.version}</version><!--$NO-MVN-MAN-VER$-->
+			<version>${log4j.version}</version><!--$NO-MVN-MAN-VER$ -->
 		</dependency>
 		<dependency>
 			<groupId>org.slf4j</groupId>
 			<artifactId>jcl-over-slf4j</artifactId>
-			<version>${jcl-over-slf4j.version}</version><!--$NO-MVN-MAN-VER$-->
+			<version>${jcl-over-slf4j.version}</version><!--$NO-MVN-MAN-VER$ -->
 		</dependency>
 
 
-<dependency>
-		<groupId>org.projectlombok</groupId>
-		<artifactId>lombok</artifactId>
-		
-	</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
 
+		</dependency>
 
 
 	</dependencies>
+
+
+
+
 
 	<build>
 		<plugins>
