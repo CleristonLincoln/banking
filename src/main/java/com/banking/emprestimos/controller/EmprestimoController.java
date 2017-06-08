@@ -12,6 +12,7 @@ import com.banking.emprestimos.model.Cliente;
 import com.banking.emprestimos.model.Emprestimo;
 import com.banking.emprestimos.repository.Clientes;
 import com.banking.emprestimos.repository.Emprestimos;
+import com.banking.emprestimos.repository.Parcelas;
 import com.banking.emprestimos.service.EmprestimoService;
 
 @Controller
@@ -27,11 +28,15 @@ public class EmprestimoController {
 	@Autowired
 	private EmprestimoService emprestimoService;
 	
+	@Autowired
+	private Parcelas parcelas;
+	
 	@RequestMapping("/novo")
 	public ModelAndView view() {
 		ModelAndView mv = new ModelAndView("/Emprestimo");
 		mv.addObject(new Emprestimo());
 		mv.addObject("clientes", clientes.findAll());
+		mv.addObject("parcelas", parcelas.findAll());
 		return mv;
 	}
 
@@ -59,7 +64,23 @@ public ModelAndView pesquisar(){
 	return mv;
 }
 	
+@RequestMapping(value="/parcelas")
+public ModelAndView listaParcelas(){
 	
+	List<Emprestimo> todosEmprestimos = emprestimos.findAll();
+	List<Cliente> todosClientes = clientes.findAll();
+	
+	ModelAndView mv = new ModelAndView("/ParcelaFollowup");
+	mv.addObject("emprestimos", emprestimos.findAll());
+	mv.addObject("clientes", clientes.findAll());
+	mv.addObject("parcelas", parcelas.findAll());
+	return mv;
+}	
+
+
+
+
+
 }
 
 

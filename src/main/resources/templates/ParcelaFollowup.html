@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+	layout:decorate="~{/comum/LayoutPadrao}">
+
+<head>
+<title></title>
+
+
+</head>
+<section layout:fragment="conteudo01">
+
+	<div class="panel panem-default">
+
+		<div class="panel-deading">
+			<h1 class="panel-title aw-titulo-panel">Follow-up das Parcelas</h1>
+		</div>
+	</div>
+
+	<div class="panel-body">
+		<table>
+			<tr>
+				<th class="">#</th>
+				<th class="">Cliente</th>
+				<th class="">Valor</th>
+				<th class="">Vencimento</th>
+				<th class="">Dias atraso</th>
+				<th class="">Situação</th>
+			</tr>
+			<tbody>
+				<tr th:each="parcela : ${parcelas}">
+					<td th:text="*{parcela.id}"></td>
+					<td th:each="*{parcela.}"></td>
+
+				</tr>
+
+
+			</tbody>
+
+
+
+
+		</table>
+
+	</div>
+
+
+
+</section>
+
+
+</html>

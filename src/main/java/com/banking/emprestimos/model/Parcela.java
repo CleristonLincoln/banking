@@ -1,6 +1,6 @@
 package com.banking.emprestimos.model;
 
-import java.util.Calendar;
+import java.time.LocalDate;
 
 import javax.persistence.Embedded;
 import javax.persistence.Entity;
@@ -31,7 +31,7 @@ public class Parcela {
 	private Integer nParcela;
 	
 	@DateTimeFormat(pattern="dd/MM/yyy")
-	private Calendar dataPagamento;
+	private LocalDate dataPagamento;
 
 	@NumberFormat(pattern = "#,##0.00")
 	private Double valorParcela;
@@ -45,7 +45,8 @@ public class Parcela {
 	@ManyToOne
 	private Emprestimo emprestimo;
 
-	
+	@ManyToOne
+	private Cliente cliente;
 	
 		
 }

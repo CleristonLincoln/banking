@@ -1,7 +1,7 @@
 package com.banking.emprestimos.service;
 
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Calendar;
 
 import javax.transaction.Transactional;
 
@@ -39,25 +39,25 @@ public class EmprestimoService {
 	// Gerador das parcelas
 	public void gerarPrcelas(Emprestimo emprestimo) {
 		
-		Integer p1 = emprestimo.getPPEmprestimo();
 		ArrayList<Parcela> parcelas = new ArrayList<>();
 
 		int nParcelas = emprestimo.getNParcelas();
-
 		double valorParcelas = emprestimo.getValorEmprestado() / nParcelas;
+		Integer p1 = emprestimo.getPPEmprestimo();
 		
-		
+		LocalDate ld = emprestimo.getPrimeiraEmprestimo();
 		
 		
 		for (int i = 0; i < nParcelas; i++) {
 		
+			int periodicidade = i * p1;//gerador de periodicidade das paarcelas
 			
+			LocalDate cParcelas = ld.plusDays(periodicidade);
 			
 			p.setNParcela(i);
 			p.setValorParcela(valorParcelas);
 			p.setEmprestimo(emprestimo);
-			
-			
+			p.setDataPagamento(cParcelas);
 			parcelas.add(p);
 			p = new Parcela();
 		}
